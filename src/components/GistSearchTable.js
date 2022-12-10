@@ -9,8 +9,7 @@ import { Octokit } from "octokit";
 
 const GistSearchTable = (props) => {
 
-    const [searchResults, setSearchResults] = useState([])
-
+    const [searchResults, setSearchResults] = useState({username:"", results:[]})
 
     const octokit = new Octokit({
         auth: process.env.REACT_APP_GITHUB_AUTH
@@ -24,15 +23,19 @@ const GistSearchTable = (props) => {
         query = query.trim()
 
         try {
-            const response = await octokit.request('GET /users/marcorichetta/gists', {})
+            const response = await octokit.request('GET /users/adilanchian/gists', {})
             
             console.log("Data from request:", response)
 
             console.log("Data from request:", response.data)
 
             setSearchResults(
-                response.data
+                {
+                    username:"marcorichetta",
+                    results:response.data,
+                }
             )
+
             console.log(searchResults)
 
         } catch (e) {
@@ -50,7 +53,7 @@ const GistSearchTable = (props) => {
     {/* this is just to validate that the state is corectly changed*/}
     {/* {searchQuery===""? "":"Github Account with username " +searchQuery + "has the following repos:"} */}
 
-    <SearchResults results={searchResults} />
+    <SearchResults results={searchResults}/>
 
     
     </>

@@ -8,6 +8,7 @@ const SearchForm = (props) => {
     const [query, setQuery] = useState("")
 
     const handleSubmit = (event) => {
+        console.log("sumit clicked")
         event.preventDefault();
         props.onSearch(query)
 

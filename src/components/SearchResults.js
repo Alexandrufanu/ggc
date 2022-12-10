@@ -1,24 +1,30 @@
 
+import Gist from "./Gist"
+
 const SearchResults = (props) => {
 
-    const {results} = props
-    // const {username} = props
+    console.log(props.results)
+    const {results, username} = props.results
+
+    console.log(results, username)
 
     return <>
     
     <div>
-    {/* here is a list of results for user {username} : */}
+        {console.log("results called")}
+    here is a list of results for user {username} :
 
     </div>
 
-    <ul>
+    {/* <ul> */}
+
     {results.map((result, idx) => {
 
-         return (<li key={idx}>{result.description}</li>)
-       })
-       
+         return (<Gist key={idx} data = {result} />)
+
+        })   
     }
-    </ul>
+    {/* </ul> */}
 
     
     </>
