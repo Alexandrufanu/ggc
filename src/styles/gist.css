@@ -6,6 +6,7 @@
 .gist-container{
 
     display: flex;
+    flex-wrap: wrap;
     background-color: beige;
     margin-top: 3px;
     margin-bottom: 3px;
@@ -29,3 +30,9 @@
     margin-left: 3px;
 }
 
+.line-break {
+    width: 100%;
+  }
+.gist-content{
+
+}

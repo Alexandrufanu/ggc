@@ -2,23 +2,25 @@ import { useState, useEffect } from "react"
 
 import "../styles/gist.css"
 
+import axios from 'axios';
+
 const Gist = (props) => {
 
     const {data} = props
 
     const [listOfFileTypes, setListOfFileTypes] = useState([])
 
-    let printTest = <></>
+    const [expandClicked, setExpandClicked] = useState(false)
+
+    const [gistData, setGistData] = useState(null)
+
     function updateTypes()
     {
     let listOfFileTypesTemp = []
     for (let file in data.files){
-      console.log(file)
       listOfFileTypesTemp.push(file.split('.').pop());
     }
-    console.log(listOfFileTypesTemp)
     
-    printTest = <>A</>
     setListOfFileTypes(listOfFileTypesTemp)
   }
 
@@ -29,21 +31,64 @@ const Gist = (props) => {
     ,[data]
   )
 
+
+  async function clickSubtitle(){
+    setExpandClicked(!expandClicked)
+
+    let gistsContentList = []
+    // {
+    //   filename:"",
+    //   fileContent:""
+    // }
+    for (let file in data.files){
+      console.log(file)
+      console.log(data.files[file].raw_url);
+
+      let filename = file
+      let fileContent = await axios.get(data.files[file].raw_url)
+      fileContent = fileContent.data
+
+      gistsContentList.push({
+            filename:filename,
+            fileContent:fileContent
+
+          }
+      )
+
+    }
+
+    setGistData (<>
+    THIS SDFS SDFSSDFS SDFRFFR TVRGBRGTGV RVRTV RTVRTV RTVRTVRtrtvrrtrtr
+
+    {
+    gistsContentList.map((gist, idx) =>{
+    return <div key={idx}>
+    <h2 >{gist.filename}</h2>
+    {gist.fileContent}
+    </div>
+  })
+    }
+
+    </>)
+
+
+  }
+
     return <>
 
     <div
     className="gist-container"
-    
     >
       
-      <div
+      <a
       className="gist-description"
-      >{data.description!==""?data.description:"Unnamed Gist"}</div>
+      onClick={clickSubtitle}
+      >{data.description!==""?data.description:"Unnamed Gist"}</a>
 
-      {listOfFileTypes.map((fileType ) => <div className="file-type" > {fileType} </div>)}
+      {listOfFileTypes.map((fileType, idx ) => <div className="file-type" key={idx}> {fileType} </div>)}
 
-      {printTest}
-
+      <div className="line-break"></div>
+      {expandClicked?<div>{gistData}</div>:""}
 
     </div>
     
