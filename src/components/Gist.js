@@ -16,9 +16,9 @@ const Gist = (props) => {
 
     function updateTypes()
     {
-    let listOfFileTypesTemp = []
-    for (let file in data.files){
-      listOfFileTypesTemp.push(file.split('.').pop());
+      let listOfFileTypesTemp = []
+      for (let file in data.files){
+        listOfFileTypesTemp.push(file.split('.').pop());
     }
     
     setListOfFileTypes(listOfFileTypesTemp)
@@ -26,8 +26,7 @@ const Gist = (props) => {
 
   useEffect( ()=>{
     updateTypes()
-  }
-
+    }
     ,[data]
   )
 
@@ -36,10 +35,7 @@ const Gist = (props) => {
     setExpandClicked(!expandClicked)
 
     let gistsContentList = []
-    // {
-    //   filename:"",
-    //   fileContent:""
-    // }
+
     for (let file in data.files){
       console.log(file)
       console.log(data.files[file].raw_url);
@@ -58,28 +54,21 @@ const Gist = (props) => {
     }
 
     setGistData (<>
-    THIS SDFS SDFSSDFS SDFRFFR TVRGBRGTGV RVRTV RTVRTV RTVRTVRtrtvrrtrtr
-
-    {
-    gistsContentList.map((gist, idx) =>{
-    return <div key={idx}>
-    <h2 >{gist.filename}</h2>
-    {gist.fileContent}
-    </div>
-  })
-    }
-
+      {gistsContentList.map((gist, idx) =>{
+        return <div key={idx} style={{ whiteSpace: "pre" }}>
+          <h2 >{gist.filename}</h2>
+          {gist.fileContent}
+        </div>
+      })}
     </>)
 
 
   }
 
     return <>
-
     <div
     className="gist-container"
     >
-      
       <a
       className="gist-description"
       onClick={clickSubtitle}
@@ -91,7 +80,6 @@ const Gist = (props) => {
       {expandClicked?<div>{gistData}</div>:""}
 
     </div>
-    
 
     </>
 
