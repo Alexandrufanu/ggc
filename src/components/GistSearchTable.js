@@ -23,7 +23,7 @@ const GistSearchTable = (props) => {
         query = query.trim()
 
         try {
-            const response = await octokit.request('GET /users/adilanchian/gists', {})
+            const response = await octokit.request(`GET /users/${query}/gists`, {})
             
             console.log("Data from request:", response)
 

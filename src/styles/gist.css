@@ -7,6 +7,7 @@
 
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     background-color: beige;
     margin-top: 3px;
     margin-bottom: 3px;
@@ -32,7 +33,8 @@
 
 .line-break {
     width: 100%;
-  }
+}
+
 .gist-content{
 
 }

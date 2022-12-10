@@ -4,6 +4,8 @@ import "../styles/gist.css"
 
 import axios from 'axios';
 
+import ForksComponent from "./ForksComponent";
+
 const Gist = (props) => {
 
     const {data} = props
@@ -78,6 +80,10 @@ const Gist = (props) => {
 
       <div className="line-break"></div>
       {expandClicked?<div>{gistData}</div>:""}
+
+      <div className="line-break"></div>
+      
+      <ForksComponent id={data.id} />
 
     </div>
 

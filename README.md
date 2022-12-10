@@ -6,3 +6,4 @@ Our site allows you to search for gists by username, language, or keyword, and y
 
 With our site, you can easily discover new gists and share them with others.
 
+* as a sidenote, when listing 3 forks of a certain gist, I added a button to not spam the Github Api and risk getting banned
