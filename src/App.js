@@ -6,10 +6,8 @@ import GistSearchTable from './components/GistSearchTable';
 
 function App() {
   return (
-    <div>
-      
+    <div className='focus-contents'>
       <GistSearchTable />
-
     </div>
   );
 }

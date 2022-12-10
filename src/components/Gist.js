@@ -39,9 +39,6 @@ const Gist = (props) => {
     let gistsContentList = []
 
     for (let file in data.files){
-      console.log(file)
-      console.log(data.files[file].raw_url);
-
       let filename = file
       let fileContent = await axios.get(data.files[file].raw_url)
       fileContent = fileContent.data
@@ -57,8 +54,9 @@ const Gist = (props) => {
 
     setGistData (<>
       {gistsContentList.map((gist, idx) =>{
-        return <div key={idx} style={{ whiteSpace: "pre" }}>
-          <h2 >{gist.filename}</h2>
+        return <div key={idx} className="gist-content">
+          <h2 style={{textAlign:"center" }}
+          >{gist.filename}</h2>
           {gist.fileContent}
         </div>
       })}
@@ -71,10 +69,11 @@ const Gist = (props) => {
     <div
     className="gist-container"
     >
-      <a
+      <button
       className="gist-description"
-      onClick={clickSubtitle}
-      >{data.description!==""?data.description:"Unnamed Gist"}</a>
+      onClick={clickSubtitle}>
+        {data.description!==""?data.description:"Unnamed Gist"}
+      </button>
 
       {listOfFileTypes.map((fileType, idx ) => <div className="file-type" key={idx}> {fileType} </div>)}
 

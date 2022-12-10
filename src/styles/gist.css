@@ -1,31 +1,30 @@
 
-
-
-
-
 .gist-container{
 
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    background-color: beige;
-    margin-top: 3px;
+    background-color: #90e0ef;
+    margin-top: 6px;
     margin-bottom: 3px;
     border-radius: 5px;
 }
 
 .gist-description{
-    color:blue;
+    color:#03045e;
     font-weight: 400;
-
+    background-color: transparent;
+    border-radius: 5px;
+    border-width: 0.5px;
 }
 
 
 .file-type{
-    color:orangered;
+    background-color:#0077b6;
+    color:white;
     border: 1px ;
     border-radius: 25px;
-    border: 2px solid red;
+    border: 2px solid #0077b6;
     border-radius: 6px;
     display: inline-flex;
     margin-left: 3px;
@@ -36,5 +35,10 @@
 }
 
 .gist-content{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin-left: 10%;
+    margin-right: 10%;
 
 }

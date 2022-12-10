@@ -1,8 +1,5 @@
-
 import { useState } from "react"
-
 import { Octokit } from "octokit";
-
 import"../styles/forkscomponent.css"
 
 const ForksComponent = (props) => {
@@ -19,9 +16,6 @@ const ForksComponent = (props) => {
         let response = await octokit.request(`GET /gists/${props.id}/forks`, {})
         response = response.data
     
-        console.log(response)
-        console.log(response.length - 3 )
-        console.log(response.length)
         let tempAccountData = []
         
         // making sure that there are ar least 3 forks":
@@ -53,16 +47,8 @@ const ForksComponent = (props) => {
                 avatar_url:response[index].owner.avatar_url,
                 username:response[index].owner.login
             })
-            console.log({avatar_url:response[index].owner.avatar_url})
 
         }
-        console.log(tempAccountData)
-        console.log("her?")
-
-        // tempAccountData.map((account, idx) => {
-        //        console.log(account.avatar_url)
-        //    })
-
     
         setAccountData(<>
             <div className="profile-image-container">
@@ -77,13 +63,13 @@ const ForksComponent = (props) => {
 
     return <>
     
-    <button
-    onClick={ () => {setButtonClicked(!buttonClicked);getAccountsData() }}
-    >view forks</button>
+    <button className="view-button"
+        onClick={ () => {setButtonClicked(!buttonClicked);getAccountsData() }}>
+        view forks
+    </button>
     
     <div className="line-break"></div>
     {buttonClicked?accountData:""}
-
 
     </>
 

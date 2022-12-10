@@ -1,32 +1,29 @@
 
 import Gist from "./Gist"
+import "../styles/SearchResults.css"
 
 const SearchResults = (props) => {
 
     console.log(props.results)
     const {results, username} = props.results
-
     console.log(results, username)
 
     return <>
     
-    <div>
-        {console.log("results called")}
-    here is a list of results for user {username} :
-
-    </div>
-
-    {/* <ul> */}
-
-    {results.map((result, idx) => {
+    {
+    
+    results.length > 0 ?results.map((result, idx) => {
 
          return (<Gist key={idx} data = {result} />)
 
-        })   
-    }
-    {/* </ul> */}
+        }):<div style={{textAlign:"center"}}><br/><br/>Here will be displayed a list of results!</div>
 
+    }
     
+    <div className="screen-filler">
+
+    </div>
+
     </>
 
 }

@@ -14,3 +14,12 @@
 .line-break {
     width: 100%;
 }
+
+.view-button{
+    border-radius: 10px;
+    /* fill:rgb(3, 3, 3); */
+    background-color: #00b4d8;
+    margin-left: 5px;
+}
+
+

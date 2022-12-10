@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react"
-
-import SearchResults from "./SearchResults"
-
+import "../styles/SearchForm.css"
 
 const SearchForm = (props) => {
 
@@ -11,26 +9,22 @@ const SearchForm = (props) => {
         console.log("sumit clicked")
         event.preventDefault();
         props.onSearch(query)
-
     }
 
 
     return <>
+        <div className="form-format">
+            <form onSubmit={handleSubmit} className="">
+                <div>
+                Get any Gist by entering the GitHub username:
+                </div>
+                <input type="text" className="text-input"
+                    onChange={(event) => {setQuery(event.target.value); }}
+                />
+                <input type="submit" className="submit-input" value="Search!"/>
+            </form>
 
-    <form
-    onSubmit={handleSubmit}
-    >
-      <label>
-        Search for a username:
-        <input type="text" 
-            onChange={(event) => {setQuery(event.target.value); }}
-        />
-      </label>
-      <input type="submit" value="Search" />
-      
-
-    </form>
-
+        </div>  
     </>
 
 }

@@ -5,6 +5,7 @@ import SearchResults from "./SearchResults"
 
 import { Octokit } from "octokit";
 
+import "../styles/GistSearchTable.css"
 
 
 const GistSearchTable = (props) => {
@@ -14,8 +15,6 @@ const GistSearchTable = (props) => {
     const octokit = new Octokit({
         auth: process.env.REACT_APP_GITHUB_AUTH
       })
-      
-
 
     async function handleSearch(query) {
         console.log("Getting ", query)
@@ -24,9 +23,7 @@ const GistSearchTable = (props) => {
 
         try {
             const response = await octokit.request(`GET /users/${query}/gists`, {})
-            
             console.log("Data from request:", response)
-
             console.log("Data from request:", response.data)
 
             setSearchResults(
@@ -35,27 +32,20 @@ const GistSearchTable = (props) => {
                     results:response.data,
                 }
             )
-
             console.log(searchResults)
 
         } catch (e) {
             alert(`An error (${e}) has occured, please try another name`)
         } 
 
-
-
       }
 
     return <>
-    
-    <SearchForm onSearch={handleSearch}  />
+    <div className="search-table">
+        <SearchForm onSearch={handleSearch}  />
 
-    {/* this is just to validate that the state is corectly changed*/}
-    {/* {searchQuery===""? "":"Github Account with username " +searchQuery + "has the following repos:"} */}
-
-    <SearchResults results={searchResults}/>
-
-    
+        <SearchResults results={searchResults}/>
+    </div>
     </>
 
 }

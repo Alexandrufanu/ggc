@@ -1,0 +1,23 @@
+
+.form-format{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+}
+
+
+form{
+    margin:auto;
+}
+
+.text-input{
+    border-radius: 5px;
+}
+
+.submit-input{
+    border-radius: 5px;
+
+}
+
+
