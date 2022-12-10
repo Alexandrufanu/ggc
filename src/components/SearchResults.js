@@ -2,12 +2,12 @@
 const SearchResults = (props) => {
 
     const {results} = props
-    const {username} = props
+    // const {username} = props
 
     return <>
     
     <div>
-    here is a list of results for user {username} :
+    {/* here is a list of results for user {username} : */}
 
     </div>
 
@@ -23,8 +23,6 @@ const SearchResults = (props) => {
     </>
 
 }
-
-
 
 
 

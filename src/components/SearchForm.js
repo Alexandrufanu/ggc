@@ -1,23 +1,32 @@
+import { useState, useEffect } from "react"
 
 import SearchResults from "./SearchResults"
 
 
 const SearchForm = (props) => {
 
+    const [query, setQuery] = useState("")
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        props.onSearch(query)
 
-    const handleSubmit = () => {}
+    }
+
 
     return <>
-    
-    <form onSubmit={handleSubmit}>
+
+    <form
+    onSubmit={handleSubmit}
+    >
       <label>
         Search for a username:
-        <input type="text" />
+        <input type="text" 
+            onChange={(event) => {setQuery(event.target.value); }}
+        />
       </label>
       <input type="submit" value="Search" />
       
-      {/* <SearchResults results={searchResults} username={username}/> */}
 
     </form>
 
