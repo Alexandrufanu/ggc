@@ -23,8 +23,32 @@ const ForksComponent = (props) => {
         console.log(response.length - 3 )
         console.log(response.length)
         let tempAccountData = []
+        
+        // making sure that there are ar least 3 forks":
+        let startIndex = response.length - 1
+        let stopIndex = response.length - 3
+
+        if (response.length >= 3)
+        {
+            startIndex = response.length - 3
+            stopIndex = response.length - 1
+        } 
+        else if (response.length > 0 )
+        {
+            startIndex = response.length - 1
+            stopIndex = 0
+        }
+        else {
+            setAccountData(<>
+                <div>
+                    <h2>No past forks have been found ! </h2>
+                </div>
+            </>)
+            return 0 
+        }
+
         // Accounts come in chronological order, so we take the las 3 elements of the array 
-        for(let index=response.length - 3;  index <= response.length - 1; index++){
+        for(let index = startIndex;  index <= stopIndex; index++){
             tempAccountData.push({
                 avatar_url:response[index].owner.avatar_url,
                 username:response[index].owner.login
