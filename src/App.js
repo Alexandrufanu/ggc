@@ -2,6 +2,8 @@ import './App.css';
 
 import GistSearchTable from './components/GistSearchTable';
 
+
+
 function App() {
   return (
     <div>

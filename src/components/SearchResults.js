@@ -13,6 +13,7 @@ const SearchResults = (props) => {
 
     <ul>
     {results.map((result, idx) => {
+
          return (<li key={idx}>{result.description}</li>)
        })
        
