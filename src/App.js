@@ -1,10 +1,12 @@
 import './App.css';
 
+import GistSearchTable from './components/GistSearchTable';
+
 function App() {
   return (
     <div>
       
-      <h1>This is GCC</h1>
+      <GistSearchTable />
 
     </div>
   );
