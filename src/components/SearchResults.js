@@ -4,9 +4,7 @@ import "../styles/SearchResults.css"
 
 const SearchResults = (props) => {
 
-    console.log(props.results)
     const {results, username} = props.results
-    console.log(results, username)
 
     return <>
     
@@ -14,7 +12,7 @@ const SearchResults = (props) => {
     
     results.length > 0 ?results.map((result, idx) => {
 
-         return (<Gist key={idx} data = {result} />)
+         return (<Gist key={idx+result.description} data = {result} />)
 
         }):<div style={{textAlign:"center"}}><br/><br/>Here will be displayed a list of results!</div>
 

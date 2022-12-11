@@ -17,14 +17,11 @@ const GistSearchTable = (props) => {
       })
 
     async function handleSearch(query) {
-        console.log("Getting ", query)
         
         query = query.trim()
 
         try {
             const response = await octokit.request(`GET /users/${query}/gists`, {})
-            console.log("Data from request:", response)
-            console.log("Data from request:", response.data)
 
             setSearchResults(
                 {
@@ -32,7 +29,6 @@ const GistSearchTable = (props) => {
                     results:response.data,
                 }
             )
-            console.log(searchResults)
 
         } catch (e) {
             alert(`An error (${e}) has occured, please try another name`)
@@ -49,11 +45,6 @@ const GistSearchTable = (props) => {
     </>
 
 }
-
-
-
-
-
 
 export default GistSearchTable
 
